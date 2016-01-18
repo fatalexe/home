@@ -24,8 +24,11 @@ $title = 'Seyden Net';
 Route::group(['domain'=>'{subdomain}.seyden.net'],$welcomeRoute);
 Route::group(['domain'=>'seyden.net'],$welcomeRoute);
 $title = '@fatalexe';
-Route::group(['domain'=>'{subdomain}.fatalexe.com'],$welcomeRoute);
-Route::group(['domain'=>'fatalexe.com'],$welcomeRoute);
+$fatalexeRoutes = function () {
+  require app_path('Http/fatalexe.com.routes.php');
+};
+Route::group(['domain'=>'{subdomain}.fatalexe.com'],$fatalexeRoutes);
+Route::group(['domain'=>'fatalexe.com'],$fatalexeRoutes);
 
 Route::get('/', function () {
     return view('welcome');
