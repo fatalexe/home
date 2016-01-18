@@ -11,17 +11,21 @@
 |
 */
 
-$title = 'Eric Seyden';
+$title = null;
 $welcomeRoute = function () use (&$title){
     Route::get('/',function () use ($title){
         return view('welcome',['title'=>$title]);
     });
 };
+$title = 'Eric Seyden';
 Route::group(['domain'=>'{subdomain}.ericseyden.com'],$welcomeRoute);
 Route::group(['domain'=>'ericseyden.com'],$welcomeRoute);
 $title = 'Seyden Net';
 Route::group(['domain'=>'{subdomain}.seyden.net'],$welcomeRoute);
 Route::group(['domain'=>'seyden.net'],$welcomeRoute);
+$title = '@fatalexe';
+Route::group(['domain'=>'{subdomain}.fatalexe.com'],$welcomeRoute);
+Route::group(['domain'=>'fatalexe.com'],$welcomeRoute);
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,7 +42,5 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/hello',function () {
-        return view('welcome');
-    });
+    //
 });
