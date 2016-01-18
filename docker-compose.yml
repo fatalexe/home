@@ -4,10 +4,21 @@ nginx:
         - "80:80"
         - "443:443"
     links:
-        - fpm
-fpm:
-    image: php:7-fpm
+        - php
+php:
+    build: ./php
     ports:
         - "9000:9000"
+    links:
+        - mysql
     volumes:
         - ./laravel:/var/www/app
+mysql:
+    image: mysql:5
+    ports:
+        - "3306:3306"
+    environment:
+        MYSQL_DATABASE: laravel
+        MYSQL_USER: laravel
+        MYSQL_PASSWORD: secret
+        MYSQL_RANDOM_ROOT_PASSWORD: "true"
