@@ -13,7 +13,7 @@
 
 $title = 'Eric Seyden';
 $welcomeRoute = function () use (&$title){
-    Route::get('/',function () use (&$title){
+    Route::get('/',function () use ($title){
         return view('welcome',['title'=>$title]);
     });
 };
