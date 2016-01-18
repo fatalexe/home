@@ -10,14 +10,18 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-$EricSeydenComRoutes = function () {
-    Route::get('/',function () {
-        return view('welcome',['title'=>'Eric Seyden']);
+
+$title = 'Eric Seyden';
+$welcomeRoute = function () use (&$title){
+    Route::get('/',function () use (&$title){
+        return view('welcome',['title'=>$title]);
     });
 };
-
-Route::group(['domain'=>'{subdomain}.ericseyden.com'],$EricSeydenComRoutes);
-Route::group(['domain'=>'ericseyden.com'],$EricSeydenComRoutes);
+Route::group(['domain'=>'{subdomain}.ericseyden.com'],$welcomeRoute);
+Route::group(['domain'=>'ericseyden.com'],$welcomeRoute);
+$title = 'Seyden Net';
+Route::group(['domain'=>'{subdomain}.seyden.net'],$welcomeRoute);
+Route::group(['domain'=>'seyden.net'],$welcomeRoute);
 
 Route::get('/', function () {
     return view('welcome');

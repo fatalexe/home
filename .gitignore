@@ -1,6 +1,7 @@
 /.idea
 /laravel/composer.phar
 /laravel/vendor
+/laravel/storage/views/*.php
 /vendor
 /laravel/node_modules
 /laravel/.env
