@@ -11,21 +11,22 @@
 |
 */
 
-$title = null;
-$welcomeRoute = function () use (&$title){
-    Route::get('/',function () use ($title){
-        return view('welcome',['title'=>$title]);
-    });
+$ericSeydenRoutes = function()
+{
+    require app_path('Http/routes.ericseyden.com.php');
 };
-$title = 'Eric Seyden';
-Route::group(['domain'=>'{subdomain}.ericseyden.com'],$welcomeRoute);
-Route::group(['domain'=>'ericseyden.com'],$welcomeRoute);
-$title = 'Seyden Net';
-Route::group(['domain'=>'{subdomain}.seyden.net'],$welcomeRoute);
-Route::group(['domain'=>'seyden.net'],$welcomeRoute);
-$title = '@fatalexe';
+Route::group(['domain'=>'{subdomain}.ericseyden.com'],$ericSeydenRoutes);
+Route::group(['domain'=>'ericseyden.com'],$ericSeydenRoutes);
+
+$seydenNetRoutes = function()
+{
+    require app_path('Http/routes.seyden.net.php');
+};
+Route::group(['domain'=>'{subdomain}.seyden.net'],$seydenNetRoutes);
+Route::group(['domain'=>'seyden.net'],$seydenNetRoutes);
+
 $fatalexeRoutes = function () {
-  require app_path('Http/fatalexe.com.routes.php');
+  require app_path('Http/routes.fatalexe.com.php');
 };
 Route::group(['domain'=>'{subdomain}.fatalexe.com'],$fatalexeRoutes);
 Route::group(['domain'=>'fatalexe.com'],$fatalexeRoutes);
@@ -33,6 +34,7 @@ Route::group(['domain'=>'fatalexe.com'],$fatalexeRoutes);
 Route::get('/', function () {
     return view('welcome');
 });
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
