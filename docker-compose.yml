@@ -1,0 +1,13 @@
+nginx:
+    build: ./nginx
+    ports:
+        - "80:80"
+        - "443:443"
+    links:
+        - fpm
+fpm:
+    image: php:7-fpm
+    ports:
+        - "9000:9000"
+    volumes:
+        - ./laravel:/var/www/app
