@@ -15,7 +15,7 @@ class SocialiteAuthController extends Controller
 {
     public function redirectToProvider()
     {
-        return Socialite::driver('twitter')->redirect();
+        return \Socialite::driver('twitter')->redirect();
     }
 
     /**
@@ -25,7 +25,7 @@ class SocialiteAuthController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('twitter')->user();
+        $user = \Socialite::driver('twitter')->user();
         return $user;
         // $user->token;
     }
