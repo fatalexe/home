@@ -32,7 +32,7 @@ Route::group(['domain'=>'{subdomain}.fatalexe.com'],$fatalexeRoutes);
 Route::group(['domain'=>'fatalexe.com'],$fatalexeRoutes);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',['title'=>'Seyden Space Industries']);
 });
 
 /*
