@@ -9,7 +9,7 @@
 namespace App\Http\Controllers\Auth;
 
 
-class SocaliteAuthController extends Controller
+class SocialiteAuthController extends Controller
 {
     public function redirectToProvider()
     {
