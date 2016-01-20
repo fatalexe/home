@@ -37,7 +37,8 @@ return [
 
     'twitter' => [
         'client_id' => env('TWITTER_CLIENT_ID'),
-        'client_secret' => env('TWITTER_CLIENT_SECRET')
+        'client_secret' => env('TWITTER_CLIENT_SECRET'),
+        'redirect' => 'http://www.seyden.net/login/twitter/callback',
     ],
 
 ];
