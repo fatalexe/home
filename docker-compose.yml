@@ -12,7 +12,10 @@ php:
     links:
         - mysql
     volumes:
-        - ./laravel:/var/www/app
+        - ./html:/var/www/html
+        - ./ericseyden.com:/var/www/ericseyden.com
+        - ./fatalexe.com:/var/www/fatalexe.com
+        - ./seyden.net:/var/www/seyden.net
 mysql:
     image: mysql:5
     ports:

@@ -1,5 +1,7 @@
 FROM php:7-fpm
 
-RUN docker-php-ext-install pdo_mysql
+RUN apt-get update && apt-git install -my git-core \
+&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+&& docker-php-ext-install pdo_mysql mbstring
 
-WORKDIR /var/www/app
+WORKDIR /var/www
